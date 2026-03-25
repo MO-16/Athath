@@ -1,122 +1,108 @@
 import { Link } from 'wouter';
 import { ArrowLeft, Star, Users, Award } from 'lucide-react';
-import Navigation from '../components/Navigation';
 
 const AboutPage = () => {
   const stats = [
-    { icon: Star, value: '+١٠,٠٠٠', label: 'عميل سعيد' },
-    { icon: Users, value: '+١٥', label: 'سنة خبرة' },
-    { icon: Award, value: '+٥٠', label: 'جائزة تميز' },
+    { icon: Star, value: '+١٠,٠٠٠', label: 'عميل سعيد', color: 'from-yellow-400 to-orange-400' },
+    { icon: Users, value: '+١٥', label: 'سنة خبرة', color: 'from-blue-400 to-purple-400' },
+    { icon: Award, value: '+٥٠', label: 'جائزة تميز', color: 'from-pink-400 to-red-400' },
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
-
+    <div className="space-y-8">
       {/* Header */}
-      <section className="bg-gradient-to-br from-purple-600 to-pink-600 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-gradient-to-br from-purple-400 via-pink-400 to-rose-400 text-white py-16 px-4 rounded-3xl mx-4 mt-6 shadow-2xl">
+        <div className="max-w-6xl mx-auto">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 mb-6 hover:bg-white/20 px-4 py-2 rounded-lg transition-all"
+            className="inline-flex items-center gap-2 mb-6 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all font-bold"
           >
-            <ArrowLeft size={20} />
-            <span>العودة للرئيسية</span>
+            <ArrowLeft size={24} />
+            <span className="text-lg">العودة للرئيسية</span>
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             🏢 من نحن
           </h1>
-          <p className="text-xl opacity-90">
-            قصة دار الأثاث - فخامة وأصالة منذ عام ٢٠١٠
+          <p className="text-2xl opacity-95">
+            قصة دار الأثاث - نحكيها لك بكل حب! 💕
           </p>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-2xl shadow-md p-8 mb-8">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">
-              قصتنا
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              تأسست دار الأثاث عام ٢٠١٠ برؤية واضحة: تقديم أثاث منزلي يجمع بين 
-              الأصالة العربية والتصميم العصري الحديث. نؤمن بأن المنزل هو القلب 
-              النابض للحياة العائلية، ولذلك نسعى لتوفير قطع أثاث تعكس الذوق الرفيع 
-              وتوفر الراحة اللازمة.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              نستخدم أجود الخامات المحلية والعالمية، ونعمل مع أمهر الحرفيين 
-              لنضمن لك منتجاً يدوم طويلاً ويحافظ على جماله عبر السنين.
-            </p>
-          </div>
+      <section className="px-4">
+        <div className="bg-white rounded-3xl shadow-xl p-10 mb-8 border-4 border-purple-200">
+          <h2 className="text-4xl font-bold mb-8 text-gray-800 flex items-center gap-3">
+            <span>📖</span> قصتنا
+          </h2>
+          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            بدأت حكايتنا عام ٢٠١٠ بحلم بسيط: نريد كل عائلة تكون عندها أثاث جميل ومريح! 
+            فكرنا... ليش ما نصنع أثاث يجمع بين جمال الماضي وراحة الحاضر؟
+          </p>
+          <p className="text-xl text-gray-700 leading-relaxed">
+            اليوم، فريقنا مكون من أمهر المصممين واللي يحبون شغلهم! نختار أجود الخامات 
+            ونصنع كل قطعة بحب عشان تنور بيوتكم وتخليها دافئة ومريحة. 🏡✨
+          </p>
+        </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl shadow-md p-6 text-center card-hover fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon size={32} className="text-purple-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-purple-600 mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600">{stat.label}</div>
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-xl p-8 text-center hover:scale-105 hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-purple-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`bg-gradient-to-br ${stat.color} w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg`}>
+                  <Icon size={48} className="text-white" />
                 </div>
-              );
-            })}
-          </div>
+                <div className="text-4xl font-bold text-purple-600 mb-3">
+                  {stat.value}
+                </div>
+                <div className="text-xl text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            );
+          })}
+        </div>
 
-          {/* Values */}
-          <div className="bg-white rounded-2xl shadow-md p-8 mt-8">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">
-              قيمنا
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-green-600 text-xl">✓</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800">الجودة أولاً</h3>
-                  <p className="text-gray-600">نرفض المساومة على الجودة في أي مرحلة من مراحل الإنتاج</p>
-                </div>
+        {/* Values */}
+        <div className="bg-white rounded-3xl shadow-xl p-10 border-4 border-green-200">
+          <h2 className="text-4xl font-bold mb-8 text-gray-800 flex items-center gap-3">
+            <span>💎</span> قيمنا اللي نؤمن فيها
+          </h2>
+          <div className="space-y-6">
+            <div className="flex items-start gap-5 p-5 rounded-2xl hover:bg-green-50 transition-all">
+              <div className="bg-gradient-to-br from-green-400 to-green-600 w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span className="text-white text-2xl font-bold">✓</span>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 text-xl">✓</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800">رضا العملاء</h3>
-                  <p className="text-gray-600">نسعداء عملاؤنا هو هدفنا الأساسي وغايتنا النهائية</p>
-                </div>
+              <div>
+                <h3 className="font-bold text-gray-800 text-xl mb-2">الجودة أولاً وأخيراً</h3>
+                <p className="text-gray-600 text-lg">ما نقبل بأي شيء غير الأفضل! كل قطعة نطلعها لازم تكون تحفة فنية.</p>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-orange-100 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-orange-600 text-xl">✓</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800">الابتكار المستمر</h3>
-                  <p className="text-gray-600">نطور تصاميمنا باستمرار لمواكبة أحدث صيحات الموضة</p>
-                </div>
+            </div>
+            <div className="flex items-start gap-5 p-5 rounded-2xl hover:bg-blue-50 transition-all">
+              <div className="bg-gradient-to-br from-blue-400 to-blue-600 w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span className="text-white text-2xl font-bold">✓</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 text-xl mb-2">ابتسامتكم هدفنا</h3>
+                <p className="text-gray-600 text-lg">سعادة عملائنا هي أهم شيء عندنا. رضاكم هو نجاحنا!</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-5 p-5 rounded-2xl hover:bg-orange-50 transition-all">
+              <div className="bg-gradient-to-br from-orange-400 to-orange-600 w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span className="text-white text-2xl font-bold">✓</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-800 text-xl mb-2">دائماً مبدعين</h3>
+                <p className="text-gray-600 text-lg">نطور تصاميمنا دائماً عشان نواكب كل جديد ونخلي بيوتكم أحلى!</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>&copy; 2026 دار الأثاث. جميع الحقوق محفوظة.</p>
-        </div>
-      </footer>
     </div>
   );
 };
